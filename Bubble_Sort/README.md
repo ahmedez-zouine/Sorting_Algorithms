@@ -1,6 +1,6 @@
-<h2 align="center"> Selection Algo </h2>
+## <h2 align="center"> Bubble algo </h2>
 <p align="center">  
-<img src ="./selection_algo.gif">
+<img src ="./Sorting_bubblesort_anim.gif">
 </p>
 
 ## About
