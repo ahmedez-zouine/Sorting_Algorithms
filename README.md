@@ -1,1 +1,1 @@
-## this repo for all the algo sorting use the stack in langage c
+## this repo for all sorting in langage c
