@@ -1,4 +1,4 @@
-<h2 align="center"> Selection Algo </h2>
+<h2 align="center">Sorting Algo in langage C</h2>
 <p align="center">  
 <img src ="./sorting_algorithm.gif">
 </p>
