@@ -1,4 +1,7 @@
-- Selection Sort Explained Simply
-The selection sort algorithm is like organizing a line of people by height. Imagine you have a group of people standing in a line, and you want to arrange them from shortest to tallest.
-![Screenshot ](Sorting_bubblesort_anim.gif)
+<h2 align="center"> Selection Algo </h2>
+<p align="center">  
+<img src ="./selection_algo.gif">
+</p>
 
+## About
+This repository contains low-level programming projects that are part of the ALX software engineering curriculum. These projects are written in the C programming language and cover topics such as data structures, algorithms, memory management, and system programming.
