@@ -26,7 +26,8 @@ void selection_sort (int array[] , int count)
       }
       j++;
     }
-    ft_swap(&array[min_index], &array[i]);
+    if (min_index != i)
+      ft_swap(&array[min_index], &array[i]);
     i++;
   }
 }
