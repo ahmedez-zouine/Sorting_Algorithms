@@ -12,18 +12,25 @@ void bubble_string(int count, int array[])
 {
   int i;
   int j;
+  int check;
 
+  check = 0;
   i = 0;
   while (i < count - 1)
   {
     j = 0;
-    while (j < count - 1)
+    while (j < count - i - 1)
     {
       if (array[j] > array[j + 1])
+      {
         ft_swap(&array[j], &array[j+1]);
+        check = 1;
+      }
       j++;
     }
     i++;
+    if (check == 0)
+      break;
   }
   
 }
