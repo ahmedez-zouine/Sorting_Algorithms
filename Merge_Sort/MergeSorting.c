@@ -1,81 +1,81 @@
 #include <stdio.h>
+#include <unistd.h>
+void marge(int arrayLeft[], int arrayRight[], int array[])
+{
+  int i;
+  int j;
 
-#include <stdio.h>
+  int sizeLeft, sizeRight, left, right;
+  sizeLeft = (sizeof(array) / 4);
+  sizeRight = sizeof(array) / sizeof(array[0]);
 
-void merge(int arr[], int l, int m, int r) {
-  int n1 = m - l + 1;
-  int n2 = r - m;
-
-  // Create temporary arrays
-  int L[n1], R[n2];
-
-  // Copy data to temporary arrays
-  for (int i = 0; i < n1; i++) {
-    L[i] = arr[l + i];
-  }
-  for (int j = 0; j < n2; j++) {
-    R[j] = arr[m + 1 + j];
-  }
-
-  // Merge the temporary arrays back into arr[]
-  int i = 0, j = 0, k = l;
-  while (i < n1 && j < n2) {
-    if (L[i] <= R[j]) {
-      arr[k] = L[i];
-      i++;
-    } else {
-      arr[k] = R[j];
-      j++;
-    }
-    k++;
-  }
-
-  // Copy the remaining elements
-  while (i < n1) {
-    arr[k] = L[i];
+  i = 0;
+  j = 0;
+  left = 0;
+  right = 0;
+  while (left < sizeLeft && right < sizeRight)
+  {
+    if (arrayLeft[i] < arrayRight[i])
+      array[i] = arrayLeft[i];
+    else
+      array[i] = arrayRight[i];
     i++;
-    k++;
   }
-  while (j < n2) {
-    arr[k] = R[j];
-    j++;
-    k++;
+  while (arrayLeft[i])
+  {
+    array[i] = arrayLeft[i];
+    i++;
   }
-}
-
-void mergeSort(int arr[], int l, int r) {
-  if (l < r) {
-    // Find the middle point
-    int m = l + (r - l) / 2;
-
-    // Sort first and second halves
-    mergeSort(arr, l, m);
-    mergeSort(arr, m + 1, r);
-
-    // Merge the sorted halves
-    merge(arr, l, m, r);
+  while (arrayRight[i])
+  {
+    array[i] = arrayLeft[i];
+    i++;
   }
 }
 
-void printArray(int arr[], int n) {
-  for (int i = 0; i < n; i++) {
-    printf("%d ", arr[i]);
-  }
-  printf("\n");
+void margeSorting(int array[])
+{
+    int i;
+    int j, sizeLeft;
+    int size = (sizeof(array) / sizeof(array[0]));
+
+    if (size > 1)
+    {
+      i = 0;
+      j = 0;
+      sizeLeft = size / 2;
+      char ArrayLeft[sizeLeft];
+      char ArrayRight[size - sizeLeft];
+      while (i < size)
+      {
+        if (size > sizeLeft)
+        {
+          ArrayLeft[i] = array[i]; 
+        }
+        else {
+          ArrayRight[j] = array[i];
+          j++;
+        }
+        i++;
+      }
+      margeSorting(ArrayLeft);
+      margeSorting(ArrayRight);
+      marge(ArrayLeft, ArrayRight, array);
+    }
 }
 
-int main() {
-  int arr[] = {6, 5, 3, 1, 8, 7, 2, 4};
-  int n = sizeof(arr) / sizeof(arr[0]);
+int main()
+{
+  int arrayElement[] = {23, 4, 45, 0, 323, -1, 0};
 
-  printf("Unsorted array: \n");
-  printArray(arr, n);
+  margeSorting(arrayElement);
 
-  mergeSort(arr, 0, n - 1);
+  int size = (sizeof(arrayElement) / sizeof(arrayElement));
 
-  printf("Sorted array: \n");
-  printArray(arr, n);
-
-  return 0;
+  int i = 0;
+  while (i < size)
+  {
+    printf("%d ", arrayElement[i]);
+  }
 }
 
